@@ -12,6 +12,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 
 @SpringBootTest
 class LoginTestApplicationTests {
@@ -65,9 +67,21 @@ class LoginTestApplicationTests {
 	
 	@Test
 	void paramTest() throws Exception{
-		mockmvc.perform(post("/param").param("id", "user").param("password", "1111"))		
-		.andDo(print());		
+		/*
+		 * mockmvc.perform(post("/param").param("id", "user").param("password", "1111"))
+		 * .andDo(print());
+		 */
+		
+		MultiValueMap<String, String> info = new LinkedMultiValueMap<String,String>();
+		info.add("id", "user");
+		info.add("password", "1111");
+		mockmvc.perform(get("/param").params(info))
+		.andDo(print());
+		
 	}
+	
+	
+	
 	
 	
 	
