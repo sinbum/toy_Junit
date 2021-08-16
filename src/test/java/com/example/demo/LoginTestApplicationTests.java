@@ -45,13 +45,22 @@ class LoginTestApplicationTests {
 		.andExpect(view().name("/WEB-INF/view/search1.jsp"));
 	}
 	
-	@Test
+	//@Test
 	void attribute() throws Exception{
 		mockmvc.perform(get("/attribute"))
 		.andExpect(model().attributeExists("name"))
 		.andExpect(model().attribute("name","hong1"))
 		.andDo(print());		
 	}
+	
+	//다른 객체를 이용해 객체를 얻는경우 new로 생성된 객체는 관계없지만
+	// service와 같이 @Autowired로 연결된 객체는 문제가 되서 테스트가 되지를 않는다.(Mock은 가상객체)
+	@Test
+		void getListTest() throws Exception{
+			mockmvc.perform(get("/getList"))
+			.andExpect(model().attributeExists("list"))			
+			.andDo(print());		
+		}
 	
 	
 	

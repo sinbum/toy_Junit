@@ -72,6 +72,8 @@ public class LoginTestApplication {
 		return "/WEB-INF/view/search.jsp";
 	}
 	
+	
+	
 	@RequestMapping("/read")
 	public String read(Model model,String id) {
 		//model.addAttribute("member",member.read("user"));
