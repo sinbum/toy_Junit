@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
@@ -55,12 +56,18 @@ class LoginTestApplicationTests {
 	
 	//다른 객체를 이용해 객체를 얻는경우 new로 생성된 객체는 관계없지만
 	// service와 같이 @Autowired로 연결된 객체는 문제가 되서 테스트가 되지를 않는다.(Mock은 가상객체)
-	@Test
+	//@Test
 		void getListTest() throws Exception{
 			mockmvc.perform(get("/getList"))
 			.andExpect(model().attributeExists("list"))			
 			.andDo(print());		
 		}
+	
+	@Test
+	void paramTest() throws Exception{
+		mockmvc.perform(post("/param").param("id", "user").param("password", "1111"))		
+		.andDo(print());		
+	}
 	
 	
 	

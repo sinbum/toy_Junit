@@ -104,6 +104,12 @@ public class LoginTestApplication {
 		
 	}
 	
+	@RequestMapping("/param")
+	@ResponseBody
+	public String paramTest(String id, String password){
+		return id+" : "+password;	
+	}
+	
 	@RequestMapping("/update")
 	public String update(){
 		return "/WEB-INF/view/update.jsp";
