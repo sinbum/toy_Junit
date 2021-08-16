@@ -9,11 +9,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+
+import com.example.demo.service.MemberService;
 
 @SpringBootTest
 class LoginTestApplicationTests {
@@ -65,7 +68,7 @@ class LoginTestApplicationTests {
 			.andDo(print());		
 		}
 	
-	@Test
+	//@Test
 	void paramTest() throws Exception{
 		/*
 		 * mockmvc.perform(post("/param").param("id", "user").param("password", "1111"))
@@ -80,6 +83,8 @@ class LoginTestApplicationTests {
 		
 	}
 	
+	@InjectMocks
+	MemberService service;
 	
 	
 	

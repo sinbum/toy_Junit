@@ -32,7 +32,7 @@ public class LoginTestApplication {
 	//DataSource datasource;
 	
 	@Autowired
-	//MemberDao member;
+	//MemberDao member;	
 	MemberService service;
 	
 	//static JdbcTemplate jdbcTemplate;
