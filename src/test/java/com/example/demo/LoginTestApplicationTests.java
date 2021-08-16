@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
@@ -14,9 +17,15 @@ class LoginTestApplicationTests {
 	MockMvcBuilders.standaloneSetup(new LoginTestApplication()).build();
 	
 	
-	
+	//일반적인 테스트 방법
 	@Test
 	void contextLoads() {
+		try {
+			mockmvc.perform(get("/")).andExpect(status().isOk());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
