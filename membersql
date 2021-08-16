@@ -1,0 +1,17 @@
+drop table member;
+
+create table member(
+id varchar2(20),
+password varchar2(20)
+);
+
+insert into member values('user','1111');
+insert into member values('user1','1111');
+
+select * from member;
+
+select * from member where id='user';
+
+update member set password='2222' where id='user1';
+
+delete from member where id='user1';
