@@ -3,6 +3,7 @@ package com.example.demo;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
@@ -37,11 +38,21 @@ class LoginTestApplicationTests {
 	}
 	
 	//페이지 확인하는 방법
-	@Test
+	//@Test
 	void pageTest() throws Exception{
 		mockmvc.perform(get("/search"))
 		.andDo(print())		
 		.andExpect(view().name("/WEB-INF/view/search1.jsp"));
 	}
+	
+	@Test
+	void ATTRIBUTETest() throws Exception{
+		mockmvc.perform(get("/attribute"))
+		.andExpect(model().attributeExists("name"))
+		.andDo(print());		
+	}
+	
+	
+	
 
 }

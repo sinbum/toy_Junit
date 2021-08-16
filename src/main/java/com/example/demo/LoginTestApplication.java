@@ -66,6 +66,12 @@ public class LoginTestApplication {
 		return "/WEB-INF/view/search.jsp";
 	}
 	
+	@RequestMapping("/attribute")
+	public String attribute(Model model) {
+		model.addAttribute("name","hong");
+		return "/WEB-INF/view/search.jsp";
+	}
+	
 	@RequestMapping("/read")
 	public String read(Model model,String id) {
 		//model.addAttribute("member",member.read("user"));
