@@ -29,7 +29,7 @@ class LoginTestApplicationTests {
 	}
 	
 	//리턴되는 내용을 확인하는 방법.
-	@Test
+	//@Test
 	void returnTest() throws Exception{
 		mockmvc.perform(get("/test"))
 		.andExpect(content().string("{\"name\": \"hong\"}"))
@@ -40,8 +40,8 @@ class LoginTestApplicationTests {
 	@Test
 	void pageTest() throws Exception{
 		mockmvc.perform(get("/search"))
-		.andExpect(view().name("/WEB-INF/view/search.jsp"))
-		.andDo(print());		
+		.andDo(print())		
+		.andExpect(view().name("/WEB-INF/view/search1.jsp"));
 	}
 
 }
