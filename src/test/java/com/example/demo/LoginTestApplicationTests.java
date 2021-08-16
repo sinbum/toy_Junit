@@ -46,7 +46,7 @@ class LoginTestApplicationTests {
 	}
 	
 	@Test
-	void ATTRIBUTETest() throws Exception{
+	void attribute() throws Exception{
 		mockmvc.perform(get("/attribute"))
 		.andExpect(model().attributeExists("name"))
 		.andDo(print());		
