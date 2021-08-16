@@ -19,13 +19,8 @@ class LoginTestApplicationTests {
 	
 	//일반적인 테스트 방법
 	@Test
-	void contextLoads() {
-		try {
-			mockmvc.perform(get("/")).andExpect(status().isOk());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	void contextLoads() throws Exception {
+		mockmvc.perform(get("/")).andExpect(status().isOk());
 	}
 
 }
