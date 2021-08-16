@@ -89,7 +89,7 @@ class LoginTestApplicationTests {
 	
 	@Autowired
 	MemberDao dao;
-	//서비스와 dao는 assertEquals를 이용할 수 있다.
+	//서비스와 dao는 assertEquals를 이용할 수 있다.  인서트,업데이트,딜리트 같은경우는 숫자를 반환하기 떄문에 반환값을 기대 할 수있음.
 	
 	@Test
 	public void daotest() {
