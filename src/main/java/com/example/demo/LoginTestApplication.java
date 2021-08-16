@@ -53,6 +53,14 @@ public class LoginTestApplication {
 		return "test";
 	}
 	
+	@RequestMapping("/test")
+	@ResponseBody
+	public String test() {
+		
+		//return "test";
+		return "{\"name\": \"hong\"}";
+	}
+	
 	@RequestMapping("/search")
 	public String search() {
 		return "/WEB-INF/view/search.jsp";

@@ -31,9 +31,8 @@ class LoginTestApplicationTests {
 	@Test
 	void returnTest() throws Exception{
 		mockmvc.perform(get("/test"))
-		.andExpect(content().string("test"))
-		.andDo(print());
-		
+		.andExpect(content().string("{\"name\": \"hong\"}"))
+		.andDo(print());		
 	}
 
 }
