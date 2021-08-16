@@ -4,6 +4,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -32,6 +33,14 @@ class LoginTestApplicationTests {
 	void returnTest() throws Exception{
 		mockmvc.perform(get("/test"))
 		.andExpect(content().string("{\"name\": \"hong\"}"))
+		.andDo(print());		
+	}
+	
+	//페이지 확인하는 방법
+	@Test
+	void pageTest() throws Exception{
+		mockmvc.perform(get("/search"))
+		.andExpect(view().name("/WEB-INF/view/search.jsp"))
 		.andDo(print());		
 	}
 
