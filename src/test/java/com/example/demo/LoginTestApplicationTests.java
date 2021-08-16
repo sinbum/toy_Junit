@@ -8,6 +8,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 @SpringBootTest
 class LoginTestApplicationTests {
 
+	
+	//url을 테스트하기 위한 가상 mvc객체 생성.
 	MockMvc mockmvc = 
 	MockMvcBuilders.standaloneSetup(new LoginTestApplication()).build();
 	
