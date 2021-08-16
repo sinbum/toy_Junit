@@ -16,6 +16,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
+import com.example.demo.dao.MemberDao;
 import com.example.demo.service.MemberService;
 
 @SpringBootTest
@@ -84,7 +85,12 @@ class LoginTestApplicationTests {
 	}
 	
 	@InjectMocks
-	MemberService service;
+	MemberDao dao;
+	
+	@Test
+	public void servicetest() {
+		System.out.println(dao.getList());
+	}
 	
 	
 	
